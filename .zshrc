@@ -34,7 +34,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-# vi mode settings
+# vi mode settings 
 # {{
   bindkey -M viins ^z vi-cmd-mode
 
@@ -46,7 +46,7 @@ source $ZSH/oh-my-zsh.sh
 
   # zle -N zle-line-init
   # zle -N zle-keymap-select
-
+  
   # Remove mode switching delay.
 KEYTIMEOUT=5
 
@@ -77,6 +77,8 @@ preexec() {
 # }}
 
 alias c="clear"
+alias o="open"
+alias o.="open ."
 alias v="nvim"
 alias p="python3"
 alias ts="ts-node"
@@ -84,22 +86,28 @@ alias cwd="pwd|pbcopy"
 alias ex="exit"
 alias :q="exit"
 alias ls="exa"
-alias matlab="/Applications/MATLAB_R2021b.app/bin/matlab -nodesktop"
+alias matlab="/Applications/MATLAB_R2021b.app/bin/matlab -nodesktop -nosplash"
+alias jc="javac -d ./build"
+alias j="java -cp ./build"
 
 
 export PATH=/Users/kieranwilliams/usr/local/bin:$PATH
 export PATH=/Users/kieranwilliams/usr/local/nodeScripts/scripts:$PATH
 
 export PATH=/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/nvim-osx64/bin:$PATH
 export PATH=export PATH=/Users/kieranwilliams/Development/flutter/bin:$PATH
 export MONGO_PATH=/usr/local/mongodb
 export PATH=$PATH:$MONGO_PATH/bin
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 
 
-bindkey '^ ' autosuggest-accept
+bindkey '^ ' autosuggest-accept 
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
